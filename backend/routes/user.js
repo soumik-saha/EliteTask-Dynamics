@@ -6,6 +6,10 @@ const bcrypt = require('bcrypt');
 router.post('/signup', async (req, res) => {
     try {
         const { name, address, contactNo, email, password } = req.body;
+        // Validate name, email, password, contactNo, address existence
+        if (!email || !name || !address || !contactNo || !password) {
+            return res.status(400).json({ success: false, message: 'Please fill all required details' });
+        }
         const existingUser = await User.findOne({ email });
         if (existingUser) {
             return res.status(400).json({ success: false, message: 'Email already in use' });
@@ -22,6 +26,10 @@ router.post('/signup', async (req, res) => {
 router.post('/signin', async (req, res) => {
     try {
         const { email, password } = req.body;
+        // Validate email, password existence
+        if (!email || !password) {
+            return res.status(400).json({ success: false, message: 'Please fill all required details' });
+        }
         const user = await User.findOne({ email });
         if (!user) {
             return res.status(401).json({ success: false, message: 'Invalid credentials' });

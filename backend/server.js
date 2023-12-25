@@ -4,16 +4,17 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
 
 // MongoDB connection
-mongoose.connect('mongodb+srv://admin:bsLLjnKZoAg2j1UY@cluster1.dfx1hte.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGODB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
@@ -25,9 +26,9 @@ db.once('open', () => {
 });
 
 // Routes
-const contactUsRoute = require('./routes/contactUs');
-const newsletterRoute = require('./routes/newsletter');
-const userRoute = require('./routes/user');
+const contactUsRoute = require('./routes/contactUs.js');
+const newsletterRoute = require('./routes/newsletter.js');
+const userRoute = require('./routes/user.js');
 
 app.use('/api/contact-us', contactUsRoute);
 app.use('/api/newsletter', newsletterRoute);
