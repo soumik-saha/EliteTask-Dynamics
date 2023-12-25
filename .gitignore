@@ -1,0 +1,49 @@
+# Node.js
+node_modules/
+
+# Environment variables
+.env
+
+# Dependency directories
+bower_components/
+jspm_packages/
+
+# macOS
+.DS_Store
+
+# Thumbnails
+Thumbs.db
+
+# Compiled files
+dist/
+build/
+
+# Logs and databases
+*.log
+*.sqlite
+*.db
+*.json
+*.log.*
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Compiled Python files
+__pycache__/
+*.pyc
+
+# Compiled Java files
+*.class
+
+# Compiled C++ files
+*.out
+
+# Temporary files
+*.tmp
+*.swp
+
+# OS-generated files
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
