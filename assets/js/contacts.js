@@ -19,11 +19,28 @@ document.addEventListener("DOMContentLoaded", function () {
                 .then((response) => response.json())
                 .then((data) => {
                     console.log("Success:", data);
-                    // Handle success, e.g., show a success message to the user
+                    showConfirmationMessage("contactConfirmationMessage", true, "Contact form submitted successfully!");
                 })
                 .catch((error) => {
                     console.error("Error:", error);
-                    // Handle errors, e.g., show an error message to the user
+                    showConfirmationMessage("contactConfirmationMessage", false, "Contact form submission failed. Please try again.");
                 });
         });
 });
+
+function showConfirmationMessage(confirmationId, isSuccess, message) {
+    const confirmationMessage = document.getElementById(confirmationId);
+    confirmationMessage.textContent = message;
+
+    if (isSuccess) {
+        confirmationMessage.style.color = "green";
+    } else {
+        confirmationMessage.style.color = "red";
+    }
+
+    confirmationMessage.style.display = "block";
+
+    setTimeout(() => {
+        confirmationMessage.style.display = "none";
+    }, 5000);
+}

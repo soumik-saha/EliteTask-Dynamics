@@ -238,6 +238,8 @@
                             <div class="mb-3"><textarea class="form-control" id="message" name="message" rows="6" placeholder="Message"></textarea></div>
                             <div><button class="btn btn-primary shadow d-block w-100" type="submit">Send </button></div>
                         </form>
+                        <!-- Confirmation message -->
+                        <div class="text-center" id="contactConfirmationMessage" style="display:none;"></div>
                     </div>
                 </div>
                 <div class="col-md-4 col-xl-4 d-flex justify-content-center justify-content-xl-start">
@@ -281,10 +283,14 @@
                     <h2 class="fw-bold mb-2">Subscribe to our newsletter</h2>
                     <p class="mb-0">Subscribe for Exclusive Updates and Insights!</p>
                 </div>
-                <form name="newsletterForm" id="newsletterForm" class="d-flex justify-content-center flex-wrap flex-lg-nowrap" method="post">
-                    <div class="my-2"><input class="border rounded-pill shadow-sm form-control" type="email" name="email" id="newsletterEmail" placeholder="Your Email"></div>
-                    <div class="my-2"><button class="btn btn-primary shadow ms-2" type="submit">Subscribe </button></div>
-                </form>
+                <div style="display: grid;">
+                    <form name="newsletterForm" id="newsletterForm" class="d-flex justify-content-center flex-wrap flex-lg-nowrap" method="post">
+                        <div class="my-2"><input class="border rounded-pill shadow-sm form-control" type="email" name="email" id="newsletterEmail" placeholder="Your Email"></div>
+                        <div class="my-2"><button class="btn btn-primary shadow ms-2" type="submit">Subscribe </button></div>
+                    </form>
+                    <!-- Confirmation message -->
+                    <div class="text-center" id="newsletterConfirmationMessage" style="display:none;"></div>
+                </div>
             </div>
         </div>
     </section>

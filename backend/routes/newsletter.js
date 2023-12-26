@@ -9,6 +9,10 @@ router.post('/', async (req, res) => {
         if (!email) {
             return res.status(400).json({ success: false, message: 'Email is required' });
         }
+        const existingEmail = await Newsletter.findOne({ email });
+        if (existingEmail) {
+            return res.status(400).json({ success: false, message: 'Email already subscribed' });
+        }
         const newSubscription = new Newsletter({ email });
         await newSubscription.save();
         res.json({ success: true, message: 'Newsletter subscription successful' });

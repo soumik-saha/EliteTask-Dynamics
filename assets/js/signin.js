@@ -14,14 +14,47 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             body: JSON.stringify({ email, password }),
         })
-            .then(response => response.json())
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    return response.json().then((errorData) => {
+                        // Check if the error message indicates an existing user
+                        if (errorData.message === 'Invalid credentials') {
+                            return { success: true, message: 'Invalid credentials' };
+                        }
+                        throw new Error(errorData.message);
+                    });
+                }
+            })
             .then(data => {
-                console.log('Success:', data);
-                // Handle success, e.g., show a success message to the user
+                console.log("Success:", data);
+                if (data.message === 'Invalid credentials') {
+                    showConfirmationMessage("confirmationMessage", false, "Invalid credentials! Please try again.");
+                } else {
+                    showConfirmationMessage("confirmationMessage", true, "You have signed in successfully!");
+                }
             })
             .catch(error => {
                 console.error('Error:', error);
-                // Handle errors, e.g., show an error message to the user
+                showConfirmationMessage("confirmationMessage", false, "sign in failed. Please try again later!");
             });
     });
 });
+
+function showConfirmationMessage(confirmationId, isSuccess, message) {
+    const confirmationMessage = document.getElementById(confirmationId);
+    confirmationMessage.textContent = message;
+
+    if (isSuccess) {
+        confirmationMessage.style.color = "green";
+    } else {
+        confirmationMessage.style.color = "red";
+    }
+
+    confirmationMessage.style.display = "block";
+
+    setTimeout(() => {
+        confirmationMessage.style.display = "none";
+    }, 5000);
+}
