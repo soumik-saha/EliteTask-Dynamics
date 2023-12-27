@@ -34,6 +34,10 @@ app.use('/api/contact-us', contactUsRoute);
 app.use('/api/newsletter', newsletterRoute);
 app.use('/api/user', userRoute);
 
+app.get('/', (req, res) => {
+    res.send("Backend server is running!")
+})
+
 // Start server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
