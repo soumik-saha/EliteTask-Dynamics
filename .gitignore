@@ -5,7 +5,7 @@ node_modules/
 .env
 
 # Ignore local config
-config.js
+# config.js
 
 # Dependency directories
 bower_components/
