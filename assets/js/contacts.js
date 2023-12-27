@@ -1,3 +1,5 @@
+const DB_URL = window.config.DB_URL;
+
 document.addEventListener("DOMContentLoaded", function () {
     document
         .getElementById("contactForm")
@@ -9,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const message = document.getElementById("message").value;
 
             // Use fetch to make a POST request to your backend
-            fetch("http://localhost:3000/api/contact-us", {
+            fetch(`${DB_URL}/api/contact-us`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

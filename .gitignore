@@ -4,6 +4,9 @@ node_modules/
 # Environment variables
 .env
 
+# Ignore local config
+config.js
+
 # Dependency directories
 bower_components/
 jspm_packages/

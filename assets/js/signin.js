@@ -1,3 +1,5 @@
+const DB_URL = window.config.DB_URL;
+
 document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById('signinForm').addEventListener('submit', function (e) {
@@ -7,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const password = document.getElementById('password').value;
 
         // Use fetch to make a POST request to your backend
-        fetch('http://localhost:3000/api/user/signin', {
+        fetch(`${DB_URL}/api/user/signin`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
