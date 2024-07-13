@@ -27,7 +27,7 @@ We welcome contributions to enhance the project. If you'd like to contribute, pl
 
 ## Live Preview
 
-Explore the live version of the website: [EliteTask Dynamics](https://main--stirring-stardust-b5e147.netlify.app/)
+Explore the live version of the website: [EliteTask Dynamics](https://elitetaskdynamics.netlify.app/)
 
 ## License
 
